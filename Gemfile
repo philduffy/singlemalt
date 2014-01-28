@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'compass-rails'
 gem 'foundation-rails'
 gem 'haml'
 gem 'jquery-rails'

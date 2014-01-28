@@ -1,4 +1,5 @@
 %li
-  = image_tag thing.image_url(:thumbnail)
+  = link_to thing.url do
+    = image_tag thing.image_url(:thumbnail), class: 'thumbnail'
 
-  %h5= thing.name
+    %h5= thing.name

@@ -10,15 +10,16 @@
     = javascript_include_tag 'vendor/modernizr'
     = csrf_meta_tags
 
-  %body
+  %body{ class: page_class }
     %section{ role: 'main' }
       .row
-        .small-3.columns
+        .large-3.columns
           %h1 Philip Duffy
           %h6.subheader
-            All opinions on this page are strictly plagarized
+            All opinions on this page are strictly plagiarized
 
           %ul.side-nav
+            %li= link_to 'Awesome Things', things_path
             %li= link_to 'The Past', '#'
             %li= link_to 'Github', '#'
             %li= link_to 'Twitter', 'http://www.twitter.com/willmanduffy'
