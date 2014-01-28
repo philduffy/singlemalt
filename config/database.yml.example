@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: single_malt
+  password:
+
+development:
+  <<: *default
+  database: sm_dev
+
+test: &test
+  <<: *default
+  min_messages: WARNING
+  database: sm_test

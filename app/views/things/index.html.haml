@@ -1,0 +1,9 @@
+%h1 Things
+%h6.subheader It's like Pinterest, but without me having to use Pinterest
+
+- if @things.present?
+  %ul.large-block-grid-3
+    = render @things
+
+- else
+  No things

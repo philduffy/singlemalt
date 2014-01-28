@@ -12,6 +12,18 @@
 
   %body
     %section{ role: 'main' }
-      = yield
+      .row
+        .small-3.columns
+          %h1 Philip Duffy
+          %h6.subheader
+            All opinions on this page are strictly plagarized
+
+          %ul.side-nav
+            %li= link_to 'The Past', '#'
+            %li= link_to 'Github', '#'
+            %li= link_to 'Twitter', 'http://www.twitter.com/willmanduffy'
+
+        .large-9.columns
+          = yield
 
     = javascript_include_tag 'application'
