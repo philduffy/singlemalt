@@ -14,5 +14,5 @@ SingleMalt::Application.routes.draw do
     resources :things, only: [:create, :new]
   end
 
-  get 'feed', to: 'things#index', defaults: { format: 'atom' }
+  get 'feed', to: 'things#index', defaults: { format: 'atom' }, as: 'feed'
 end
