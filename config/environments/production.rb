@@ -77,4 +77,7 @@ SingleMalt::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Custom Variables
+  config.sm_carrierwave_storage = :fog
 end

@@ -3,7 +3,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
-  storage :file
+  storage Rails.application.config.sm_carrierwave_storage
 
   version :large do
     process resize_to_fill: [800, 400]

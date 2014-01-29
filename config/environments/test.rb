@@ -33,4 +33,7 @@ SingleMalt::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Custom Variables
+  config.sm_carrierwave_storage = :file
 end
