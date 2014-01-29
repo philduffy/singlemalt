@@ -31,5 +31,5 @@ SingleMalt::Application.configure do
   config.sm_carrierwave_storage = :file
 
   # This secret token is only used for development. All production instances have their own
-  config.sm_secret_token = Rails.application.config.sm_secret_token || 'de91299667df913b904bb001ff74d8ae1b4776a5b1c37afc60229d8552cfbd8fb774cc428bdf27ad5debf8ed8f09d717b8f3127cba6a7271180a6866c78669d4'
+  config.sm_secret_token = 'de91299667df913b904bb001ff74d8ae1b4776a5b1c37afc60229d8552cfbd8fb774cc428bdf27ad5debf8ed8f09d717b8f3127cba6a7271180a6866c78669d4'
 end
