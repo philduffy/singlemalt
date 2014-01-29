@@ -14,22 +14,33 @@
     %section{ role: 'main' }
       .row
         .large-3.columns
-          %h3 Philip Duffy
-          %h6.subheader
-            All opinions on this page are strictly plagiarized.
+          .sidebar
+            %h3 Philip Duffy
+            %h6.subheader
+              All opinions on this page are strictly plagiarized.
 
-          %ul.side-nav
-            %li= link_to 'Things', things_path
-            %li= link_to 'Past', experiences_path
-            %li= link_to 'Github', 'https://www.github.com/philduffy'
-            %li= link_to 'Twitter', 'http://www.twitter.com/willmanduffy'
+            %ul.side-nav
+              %li= link_to 'Awesome Things', things_path
+              %li= link_to 'Past Experiences', experiences_path
 
-            - if signed_in?
-              %li= link_to 'New Thing', new_manage_thing_path
-              %li= link_to 'New Experience', new_manage_experience_path
-              %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+              - if signed_in?
+                %li= link_to 'New Thing', new_manage_thing_path
+                %li= link_to 'New Experience', new_manage_experience_path
+                %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
 
-        .large-9.columns
+          .image-container
+            = link_to 'http://www.twitter.com/willmanduffy' do
+              = image_tag 'icons/twitter.png'
+
+            = link_to 'http://www.github.com/philduffy' do
+              = image_tag 'icons/github.png'
+
+            = link_to 'http://www.rdio.com/people/elementus/' do
+              = image_tag 'icons/rdio.png'
+
+
+
+        .large-9.columns.main-container
           = yield
 
     = javascript_include_tag 'application'
