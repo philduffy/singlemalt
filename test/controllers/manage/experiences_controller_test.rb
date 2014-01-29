@@ -1,6 +1,8 @@
 require 'test_helper'
 
 describe Manage::ExperiencesController do
+  before { sign_in create(:user) }
+
   describe 'a POST to #create' do
     describe 'with valid attributes' do
       before { post :create, experience: attributes_for(:experience) }

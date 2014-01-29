@@ -24,8 +24,10 @@
             %li= link_to 'Github', 'https://www.github.com/philduffy'
             %li= link_to 'Twitter', 'http://www.twitter.com/willmanduffy'
 
-            %li= link_to 'New Thing', new_manage_thing_path
-            %li= link_to 'New Experience', new_manage_experience_path
+            - if signed_in?
+              %li= link_to 'New Thing', new_manage_thing_path
+              %li= link_to 'New Experience', new_manage_experience_path
+              %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
 
         .large-9.columns
           = yield

@@ -8,6 +8,10 @@ require 'minitest/rails'
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 
+  class MiniTest::Rails::ActionController::TestCase
+    include Devise::TestHelpers
+  end
+
   class MiniTest::Rails::ActiveSupport::TestCase
     include FactoryGirl::Syntax::Methods
   end

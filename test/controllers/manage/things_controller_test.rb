@@ -1,6 +1,7 @@
 require 'test_helper'
 
 describe Manage::ThingsController do
+  before { sign_in create(:user) }
   describe 'a POST to #create' do
     describe 'with valid attributes' do
       before { post :create, thing: attributes_for(:thing) }
