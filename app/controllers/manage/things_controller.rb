@@ -21,6 +21,7 @@ class Manage::ThingsController < Manage::BaseController
       :description,
       :image,
       :name,
+      :tweet,
       :url
     )
   end

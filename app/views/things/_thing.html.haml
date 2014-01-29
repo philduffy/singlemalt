@@ -1,5 +1,5 @@
 %li.thumbnail-container
-  = link_to thing.url do
+  = link_to thing_path(thing) do
     = image_tag thing.image_url(:thumbnail), class: 'thumbnail'
 
     %h5= thing.name

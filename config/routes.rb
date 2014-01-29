@@ -5,7 +5,7 @@ SingleMalt::Application.routes.draw do
 
   resources :experiences, only: [:index]
 
-  resources :things, only: [:index] do
+  resources :things, only: [:index, :show] do
     get 'page/:page', action: :index, on: :collection
   end
 

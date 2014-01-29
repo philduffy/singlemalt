@@ -27,4 +27,24 @@ class ThingTest < ActiveSupport::TestCase
       subject.must_equal expectation
     end
   end
+
+  # Methods
+  describe 'form_tweet_message' do
+    subject { build_stubbed(:thing, name: 'Pandas!', id: 1001) }
+
+    it 'must properly generate a tweet message' do
+      expectation = 'I added a new thing: Pandas! - http://www.single-malt.co/things/1001'
+
+      subject.form_tweet_message.must_equal expectation
+    end
+  end
+
+  # Behavior
+  describe 'set_defaults' do
+    subject { build(:thing, tweet: nil).tap(&:valid?) }
+
+    it 'must set the proper defaults' do
+      subject.tweet.must_equal false
+    end
+  end
 end
