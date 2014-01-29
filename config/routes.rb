@@ -5,6 +5,7 @@ SingleMalt::Application.routes.draw do
   resources :things, only: [:index]
 
   namespace :manage do
+    resources :experiences, only: [:create, :new]
     resources :things, only: [:create, :new]
   end
 end

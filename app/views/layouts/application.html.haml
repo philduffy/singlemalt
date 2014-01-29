@@ -19,10 +19,13 @@
             All opinions on this page are strictly plagiarized.
 
           %ul.side-nav
-            %li= link_to 'Awesome Things', things_path
-            %li= link_to 'The Past', experiences_path
+            %li= link_to 'Things', things_path
+            %li= link_to 'Past', experiences_path
             %li= link_to 'Github', 'https://www.github.com/philduffy'
             %li= link_to 'Twitter', 'http://www.twitter.com/willmanduffy'
+
+            %li= link_to 'New Thing', new_manage_thing_path
+            %li= link_to 'New Experience', new_manage_experience_path
 
         .large-9.columns
           = yield

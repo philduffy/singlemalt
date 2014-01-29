@@ -1,0 +1,6 @@
+%li.experience-container
+  %h4.header= experience_header experience
+  %h6.subheader= "#{experience.job} (#{experience_timeline(experience)})"
+
+  .description
+    = markdown experience.description
