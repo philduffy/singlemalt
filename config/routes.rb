@@ -11,7 +11,7 @@ SingleMalt::Application.routes.draw do
 
   namespace :manage do
     resources :experiences, only: [:create, :new]
-    resources :things, only: [:create, :new]
+    resources :things, except: :destroy
   end
 
   get 'feed', to: 'things#index', defaults: { format: 'atom' }, as: 'feed'

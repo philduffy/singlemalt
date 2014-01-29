@@ -48,7 +48,7 @@ module ApplicationHelper
 
     if signed_in?
       output << content_tag(:li) do
-        link_to 'New Thing', new_manage_thing_path
+        link_to 'Manage Things', manage_things_path
       end
 
       output << content_tag(:li) do

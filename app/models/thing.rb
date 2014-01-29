@@ -14,10 +14,6 @@ class Thing < ActiveRecord::Base
   validates :url, presence: true, url: true
 
   # Methods
-  def self.per_page
-    9
-  end
-
   def form_tweet_message
     base = "I added a new thing:"
     message = self.name

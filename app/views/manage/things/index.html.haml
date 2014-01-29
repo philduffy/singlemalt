@@ -1,0 +1,17 @@
+%h3 Manage Things
+= link_to 'New Thing', new_manage_thing_path, class: 'new_link'
+
+- if @things.present?
+  %table.manage-table
+    %thead
+      %tr
+        %th
+        %th Name
+        %th Edit
+    %tbody
+      = render @things
+
+  = foundation_paginate @things
+
+- else
+  There are no things yet.
