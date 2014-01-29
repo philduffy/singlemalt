@@ -12,21 +12,26 @@
 
   %body{ class: page_class }
     %section{ role: 'main' }
+      %nav.top-bar.show-for-medium-down{ data: { topbar: true} }
+        %ul.title-area
+          %li.name
+            %h1= site_header
+          %li.toggle-topbar.menu-icon
+            = link_to 'Menu', '#'
+
+        %section.top-bar-section
+          %ul.right
+            = menu_links(social: true)
+
       .row
-        .large-3.columns
+        .large-3.columns.hide-for-medium-down
           .sidebar
-            %h3 Philip Duffy
+            %h3.header= site_header
             %h6.subheader
               All opinions on this page are strictly plagiarized.
 
             %ul.side-nav
-              %li= link_to 'Awesome Things', things_path
-              %li= link_to 'Past Experiences', experiences_path
-
-              - if signed_in?
-                %li= link_to 'New Thing', new_manage_thing_path
-                %li= link_to 'New Experience', new_manage_experience_path
-                %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+              = menu_links
 
           .image-container
             = link_to 'http://www.twitter.com/willmanduffy' do
@@ -37,8 +42,6 @@
 
             = link_to 'http://www.rdio.com/people/elementus/' do
               = image_tag 'icons/rdio.png'
-
-
 
         .large-9.columns.main-container
           = yield

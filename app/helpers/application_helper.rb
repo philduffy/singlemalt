@@ -24,4 +24,46 @@ module ApplicationHelper
     }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
+
+  def menu_links(opts = {})
+    output = ''
+
+    output << content_tag(:li) do
+      link_to 'Awesome Things', things_path
+    end
+
+    output << content_tag(:li) do
+      link_to 'Past Experiences', experiences_path
+    end
+
+    if opts[:social].present?
+      output << content_tag(:li) do
+        link_to 'Github', 'http://www.github.com/philduffy'
+      end
+
+      output << content_tag(:li) do
+        link_to 'Twitter', 'http://www.twitter.com/willmanduffy'
+      end
+    end
+
+    if signed_in?
+      output << content_tag(:li) do
+        link_to 'New Thing', new_manage_thing_path
+      end
+
+      output << content_tag(:li) do
+        link_to 'New Experience', new_manage_experience_path
+      end
+
+      output << content_tag(:li) do
+        link_to 'Sign Out', destroy_user_session_path, method: :delete
+      end
+    end
+
+    output.html_safe
+  end
+
+  def site_header
+    link_to 'Philip Duffy', root_path
+  end
 end
