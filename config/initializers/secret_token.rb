@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-SingleMalt::Application.config.secret_key_base = 'de91299667df913b904bb001ff74d8ae1b4776a5b1c37afc60229d8552cfbd8fb774cc428bdf27ad5debf8ed8f09d717b8f3127cba6a7271180a6866c78669d4'
+SingleMalt::Application.config.secret_key_base = Rails.application.config.try(:sm_secret_token) || ENV['SECRET_TOKEN']
