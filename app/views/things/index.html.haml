@@ -1,3 +1,9 @@
+.banner-container.show-for-medium-down
+  %h3 Recently Watched
+  = link_to @last_watched['imdb_url'] do
+    = image_tag @last_watched['tvdb_banner_url']
+    %p= plex_episode_name(@last_watched)
+
 %h3 Things
 %h6.subheader
   It's like Pinterest, but without me having to use Pinterest.

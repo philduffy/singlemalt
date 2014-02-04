@@ -36,8 +36,9 @@ class MediaServer
     tvdb_show = @tvdb.find_series_by_id(tvdb_id)
 
     {
+      'imdb_url' => "http://www.imdb.com/title/#{tvdb_show.imdb_id}",
       'tvdb_artwork_url' => tvdb_show.poster,
-      'imdb_url' => "http://www.imdb.com/title/#{tvdb_show.imdb_id}"
+      'tvdb_banner_url' => tvdb_show.banner
     }
   end
 
