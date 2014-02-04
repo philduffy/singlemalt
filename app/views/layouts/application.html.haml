@@ -33,6 +33,13 @@
             %ul.side-nav
               = menu_links
 
+          - if @last_watched.present?
+            .last-watched
+              %h5 Last Watched:
+              = link_to @last_watched['imdb_url'] do
+                = image_tag @last_watched['tvdb_artwork_url']
+                %p= plex_episode_name(@last_watched)
+
           .logo-image-container
             = link_to 'http://www.twitter.com/willmanduffy' do
               = image_tag 'icons/twitter.png'

@@ -63,7 +63,17 @@ module ApplicationHelper
     output.html_safe
   end
 
+  def plex_episode_name(episode)
+    "#{episode['grandparent_title']} "\
+      "- (S#{episode['parent_index']}E#{episode['index']}) - "\
+      "#{episode['title']}"
+  end
+
   def site_header
     link_to 'Philip Duffy', root_path
+  end
+
+  def tvdb_image_url(id)
+    "http://thetvdb.com/banners/_cache/posters/#{id}-1.jpg"
   end
 end
