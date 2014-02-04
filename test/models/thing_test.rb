@@ -29,6 +29,23 @@ class ThingTest < ActiveSupport::TestCase
   end
 
   # Methods
+  describe 'form_facebook_message' do
+    subject { build_stubbed(:thing, name: 'Penguins!', id: 1001) }
+
+    it 'must generate a hash of data' do
+      expectation = {
+        message: 'I just added Penguins! to my list of things on my site.',
+        picture: 'http://www.example.com/image.png',
+        link: 'http://www.single-malt.co/things/1001',
+        name: 'Penguins!'
+      }
+
+      subject.stub(:image_url, 'http://www.example.com/image.png') do
+        subject.form_facebook_message.must_equal expectation
+      end
+    end
+  end
+
   describe 'form_tweet_message' do
     subject { build_stubbed(:thing, name: 'Pandas!', id: 1001) }
 
@@ -44,6 +61,7 @@ class ThingTest < ActiveSupport::TestCase
     subject { build(:thing, tweet: nil).tap(&:valid?) }
 
     it 'must set the proper defaults' do
+      subject.facebook.must_equal false
       subject.tweet.must_equal false
     end
   end
