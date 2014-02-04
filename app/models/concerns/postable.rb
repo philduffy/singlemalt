@@ -8,8 +8,9 @@ module Postable
   private
 
   def send_post
-    if self.new_record?
-      Facebook.instance.post self.form_facebook_message
-    end
+    return if self.facebooked_at.present?
+
+    Facebook.instance.post self.form_facebook_message
+    touch :facebooked_at
   end
 end
