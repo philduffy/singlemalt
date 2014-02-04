@@ -41,6 +41,7 @@ class Manage::ThingsController < Manage::BaseController
   def thing_params
     params.require(:thing).permit(
       :description,
+      :facebook,
       :image,
       :name,
       :tweet,
