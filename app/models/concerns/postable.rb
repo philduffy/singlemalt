@@ -8,6 +8,8 @@ module Postable
   private
 
   def send_post
-    Facebook.instance.post self.form_facebook_message
+    object = self.reload
+
+    Facebook.instance.post object.form_facebook_message
   end
 end
