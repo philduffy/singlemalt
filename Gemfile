@@ -43,5 +43,5 @@ group :test do
 end
 
 group :development, :test do
-  gem 'debugger'
+  gem 'byebug'
 end
