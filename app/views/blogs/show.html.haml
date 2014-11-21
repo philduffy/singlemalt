@@ -1,0 +1,8 @@
+%h1= @blog.title
+%small
+  Posted on #{@blog.created_at} by
+  %strong Philip Duffy
+
+.blog-content
+  = find_and_preserve do
+    = markdown @blog.content

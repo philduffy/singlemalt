@@ -14,15 +14,21 @@ module ApplicationHelper
 
   def markdown(text)
     renderer = Redcarpet::Render::HTML.new(hard_wrap: true, filter_html: true)
+
     options = {
       autolink: true,
       no_intra_emphasis: true,
       fenced_code_blocks: true,
       lax_html_blocks: true,
       strikethrough: true,
-      superscript: true
+      superscript: true,
+      gh_blockcode: true
     }
-    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
+
+    syntax_highlighter(Redcarpet::Markdown.new(renderer, options).render(text)).html_safe
+
+    # options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
+    # syntax_highlighter(Redcarpet::Markdown.new(text, *options).to_html).html_safe
   end
 
   def menu_links(opts = {})
@@ -71,6 +77,16 @@ module ApplicationHelper
 
   def site_header
     link_to 'Philip Duffy', root_path
+  end
+
+  def syntax_highlighter(html)
+    doc = Nokogiri::HTML(html)
+
+    doc.search("//code[@class]").each do |code|
+      code.replace Albino.colorize(code.text.rstrip, code[:class])
+    end
+
+    doc.to_s
   end
 
   def tvdb_image_url(id)
