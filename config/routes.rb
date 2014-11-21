@@ -10,7 +10,7 @@ SingleMalt::Application.routes.draw do
   end
 
   namespace :manage do
-    resources :experiences, only: [:create, :new]
+    resources :experiences
     resources :things, except: :destroy
   end
 
