@@ -70,7 +70,7 @@ module ApplicationHelper
   end
 
   def site_header
-    link_to 'Philip Duffy', root_path
+    link_to 'Will Duffy', root_path
   end
 
   def tvdb_image_url(id)
